@@ -43,10 +43,10 @@ static char *colors[][3] = {
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 			[	SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-			[SchemeTagsSel]  = { col_gray4, col_white,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+			[SchemeTagsSel]  = { col_gray4, selbordercolor,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
 			[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
 			 [SchemeInfoSel]  = { col_gray4, col_black,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-				[SchemeInfoNorm]  = { col_gray3, col_black,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+				[SchemeInfoNorm]  = { selbordercolor, col_black,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 
 };
 
