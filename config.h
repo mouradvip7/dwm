@@ -27,10 +27,27 @@ static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#770000";
 static char selbgcolor[]            = "#005577";
+
+static const char col_black[]       = "#1e1e1e";
+static const char col_white[]       = "#cccccc";
+
+static char col_gray1[]       = "#222222";
+static char col_gray2[]       = "#444444";
+static char col_gray3[]       = "#bbbbbb";
+static char col_gray4[]       = "#eeeeee";
+static char col_cyan[]        = "#005577";
+static char col_red[]			= "#ff0000";
+
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+			[	SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+			[SchemeTagsSel]  = { col_gray4, col_white,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+			[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+			 [SchemeInfoSel]  = { col_gray4, col_black,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+				[SchemeInfoNorm]  = { col_gray3, col_black,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+
 };
 
 typedef struct {
@@ -46,10 +63,10 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-/*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-*/
-static const char *tags[] = { "", "", "", "", "", "" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
+/*static const char *tags[] = { "", "", "", "", "", "" };
+*/
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
 static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
@@ -68,7 +85,19 @@ static const Rule rules[] = {
 	{ NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
 	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
 	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
-	{"Brave",			NULL,				NULL,					2,					0,						0,					0					-1},
+	{"Brave",			NULL,				NULL,					1 << 1,					0,						0,					0					-1},
+	{"Ferdi",			NULL,				NULL,					1 << 2,					0,						0,					0					-1},
+	{"Vivaldi",			NULL,				NULL,					1 << 3,					0,						0,					0					-1},
+
+	{"LF",			"lf",				NULL,					1 << 4,					0,						1,					1					-1},
+
+
+	{"Stremio",			"stremio",				NULL,					1 << 5,					0,					0,				0,				-1},
+
+
+
+
+
 
 };
 
